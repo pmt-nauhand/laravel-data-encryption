@@ -34,7 +34,7 @@ class DataEncryptionService
                 return json_decode($decryptedData, true);
             }
 
-            return 'null';
+            return $value;
         } catch (RuntimeException $e) {
             Log::error($e->getMessage());
             throw new RuntimeException('Une erreur est survenue: '.$e->getMessage(), 0, $e);
