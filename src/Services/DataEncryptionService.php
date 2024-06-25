@@ -44,19 +44,20 @@ class DataEncryptionService
     /**
      * Encrypt the specified attribute from the request using public key encryption.
      *
-     * @param  Request  $request  The HTTP request containing the data to encrypt.
+     * @param  Request|null  $request  The HTTP request containing the data to encrypt.
      * @param  mixed  $attribute  The attribute in the request to encrypt.
      * @return string The encrypted data.
      *
      * @throws RuntimeException If there is an error during encryption.
      */
-    public function encrypt(Request $request, mixed $attribute, string $publicPath): string
+    public function encrypt(mixed $attribute, string $publicPath, ?Request $request = null): string
     {
         try {
+            $dataToEncrypt = is_null($request) ? $attribute : $request->input($attribute);
             $publicKeyResource = $this->getPublicKeyResource($publicPath);
             $aesKey = openssl_random_pseudo_bytes(32);
-            $dataToEncrypt = json_encode($request->input($attribute), JSON_THROW_ON_ERROR);
-            $encryptedData = $this->encryptData($dataToEncrypt, $aesKey);
+            $dataToEncryptEncoded = json_encode($dataToEncrypt, JSON_THROW_ON_ERROR);
+            $encryptedData = $this->encryptData($dataToEncryptEncoded, $aesKey);
             $encryptedAesKey = $this->encryptAesKey($aesKey, $publicKeyResource);
 
             $combinedData = base64_encode($encryptedAesKey).':'.base64_encode($encryptedData);
