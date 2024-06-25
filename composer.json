@@ -1,0 +1,29 @@
+{
+    "name": "nauhand/laravel-data-encryption",
+    "description": "A Laravel package for data encryption and decryption using RSA keys",
+    "type": "library",
+    "require": {
+        "php": "^8.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Nauhand\\LaravelDataEncryption\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nauhand\\LaravelDataEncryption\\DataEncryptionServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "NAUHAND ALLOU",
+            "email": "olivier.nauhand@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
