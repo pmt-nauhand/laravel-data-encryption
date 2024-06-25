@@ -1,12 +1,6 @@
 # Laravel Data Encryption
 
 A Laravel package for data encryption and decryption using RSA keys.
-## Installation
-
-You can install the package via Composer:
-
-```bash
-composer require nauhand/laravel-data-encryption
 
 ## Crédits
 
@@ -15,3 +9,10 @@ composer require nauhand/laravel-data-encryption
 ## Licence
 
 Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## Installation
+
+You can install the package via Composer:
+
+```bash
+composer require nauhand/laravel-data-encryption
