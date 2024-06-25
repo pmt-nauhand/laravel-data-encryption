@@ -38,13 +38,20 @@ Once your keys have been generated and stored, you will now add these two variab
 
 3. Encrypt and decrypt data
 Now you can use the package to encrypt and decrypt data. Here's an example of how to do:
-To encrypt : 
+
+### To encrypt without $request: 
 
 ```bash
 DataEncryption::encrypt($jsonString, config('app.ssl_public_key_path'));
 ```
 
-To decrypt : 
+### To encrypt with $request: 
+
+```bash
+DataEncryption::encrypt($jsonString, config('app.ssl_public_key_path'), $request);
+```
+
+### To decrypt : 
 
 ```bash
 DataEncryption::decrypt($encryptedString, config('app.ssl_private_key_path'));
