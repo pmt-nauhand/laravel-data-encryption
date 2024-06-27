@@ -31,7 +31,7 @@ Once your keys have been generated and stored, you will now add these two variab
 3. Encrypt and decrypt data
 Now you can use the package to encrypt and decrypt json data. Here's an example of how to do:
 
-### To encrypt without $request: 
+### To encrypt : 
 
 This method is useful if you wish to encrypt json data. For example, if you store data in your database such as tokens or keys formatted as json strings, it would be useful to hide this information for data integrity purposes.
 
