@@ -50,13 +50,12 @@ class DataEncryptionService
      *
      * @throws RuntimeException If there is an error during encryption.
      */
-    public function encrypt(mixed $attribute, string $publicPath, ?Request $request = null): string
+    public function encrypt(string $value, string $publicPath): string
     {
         try {
-            $dataToEncrypt = is_null($request) ? $attribute : $request->input($attribute);
             $publicKeyResource = $this->getPublicKeyResource($publicPath);
             $aesKey = openssl_random_pseudo_bytes(32);
-            $dataToEncryptEncoded = json_encode($dataToEncrypt, JSON_THROW_ON_ERROR);
+            $dataToEncryptEncoded = json_encode($value, JSON_THROW_ON_ERROR);
             $encryptedData = $this->encryptData($dataToEncryptEncoded, $aesKey);
             $encryptedAesKey = $this->encryptAesKey($aesKey, $publicKeyResource);
 
