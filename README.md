@@ -33,18 +33,10 @@ Now you can use the package to encrypt and decrypt json data. Here's an example 
 
 ### To encrypt without $request: 
 
-This method is useful if you wish to encrypt json data that does not come from HTTP input, such as a form.
+This method is useful if you wish to encrypt json data. For example, if you store data in your database such as tokens or keys formatted as json strings, it would be useful to hide this information for data integrity purposes.
 
 ```bash
 DataEncryption::encrypt($jsonString, config('app.ssl_public_key_path'));
-```
-
-### To encrypt with $request: 
-
-This method is useful if you want to encrypt data coming from an HTTP input, such as a form.
-
-```bash
-DataEncryption::encrypt($attribute, config('app.ssl_public_key_path'), $request);
 ```
 
 ### To decrypt : 
