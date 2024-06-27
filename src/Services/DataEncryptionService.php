@@ -50,7 +50,7 @@ class DataEncryptionService
      *
      * @throws RuntimeException If there is an error during encryption.
      */
-    public function encrypt(mixed $attribute, string $publicPath, ?Request $request = null): string
+    public function encrypt(mixed $attribute, string $publicPath, ?Request $request): string
     {
         try {
             $dataToEncrypt = is_null($request) ? $attribute : $request->input($attribute);
