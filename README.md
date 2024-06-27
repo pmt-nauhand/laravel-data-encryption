@@ -39,9 +39,9 @@ This method is useful if you wish to encrypt json data that does not come from H
 DataEncryption::encrypt($jsonString, config('app.ssl_public_key_path'));
 ```
 
-This method is useful if you want to encrypt data coming from an HTTP input, such as a form.
-
 ### To encrypt with $request: 
+
+This method is useful if you want to encrypt data coming from an HTTP input, such as a form.
 
 ```bash
 DataEncryption::encrypt($attribute, config('app.ssl_public_key_path'), $request);
